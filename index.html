@@ -4,12 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Memory Game</title>
+    <meta name="description"
+        content="If you want to have funny time for a while, play this game, you may figure out challenges for your memory.">
+    <meta proterty="og:title" content="A web game">
+    <meta property="og:description" content="It's a memory game which challenges you to find the pairs">
+    <link rel="icon" href="build/img/Monster_Yellow.avif">
     <link rel="stylesheet" href="build/css/app.css">
+
 </head>
 
 <body>
-    <h1>Hello I'm the Index</h1>
+    <main>
+        <h1 class="web-name">Memory Game</h1>
+
+        <section class="settings">
+            <div class="info">
+                <p class="info__scoreboard">Mistakes: <span>0</span></p>
+                <p class="info__scoreboard">Moves: <span>0</span></p>
+                <p class="info__scoreboard">00:<span>00</span></p>
+            </div>
+
+            <div>
+                <p class="settings__title">Set up the game to make it funny</p>
+            </div>
+
+            <div class="buttons">
+                <h2 class="settings__title">Card's Design</h2>
+                <div class="buttons__box">
+                    <button class="buttons__style">Green</button>
+                    <button class="buttons__style">Red</button>
+                    <button class="buttons__style">Black</button>
+                </div>
+            </div>
+
+            <div class="select">
+                <h2 class="settings__title">Select the level</h2>
+                <select class="select__options" id="">
+                    <option value="" selected disabled>How many monsters?</option>
+                    <option value="6">Amount of monsters 6</option>
+                    <option value="10">Amount of monsters 10</option>
+                    <option value="14">Amount of monsters 14</option>
+                    <option value="18">Amount of monsters 18</option>
+                    <option value="20">Amount of monsters 20</option>
+                    <option value="24">Amount of monsters 24</option>
+                </select>
+            </div>
+
+            <div class="start">
+                <button class="start__button">Start the game</button>
+            </div>
+
+        </section>
+
+        <section>
+
+        </section>
+    </main>
+
+
 </body>
 
 </html>

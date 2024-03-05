@@ -1,0 +1,36 @@
+@mixin phone {
+    @media(min-width: 480px) {
+        @content;
+    }
+}
+
+
+@mixin tablet {
+    @media(min-width: 768px) {
+        @content;
+    }
+}
+
+
+@mixin laptop {
+    @media(min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width: 1700px) {
+        @content;
+    }
+}
+
+@mixin ultrawide {
+    @media(min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin container($width, $average) {
+    width: min($width, $average);
+    margin: 0 auto;
+}
