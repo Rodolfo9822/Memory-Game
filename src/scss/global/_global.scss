@@ -17,7 +17,7 @@ body {
     font-size: 1.6rem;
     letter-spacing: 2px;
     line-height: 1.5;
-    font-family: v.$fontFamily;
+    font-family: "Open Sans", sans-serif;
 }
 
 main {
@@ -26,13 +26,6 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-}
-
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
 }
 
 h1,
@@ -50,4 +43,22 @@ li {
 button,
 select {
     border: none;
+}
+
+h1 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    padding: 2rem 0;
+}
+
+.web-name-box {
+    @include m.container(140rem, 95%);
+    margin-bottom: v.$bottom;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }

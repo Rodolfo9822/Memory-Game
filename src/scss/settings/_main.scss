@@ -1,0 +1,17 @@
+@use 'global/variables' as v;
+@use 'global/mixins' as m;
+
+.settings {
+    @include m.container(110rem, 90%);
+    background-image: linear-gradient(to bottom, v.$redColor 50%, #494949 100%);
+    padding: 3rem;
+    border-radius: v.$radius;
+
+    &__title {
+        @include m.fontSize;
+        text-align: center;
+        font-weight: 500;
+        color: v.$whiteColor;
+        margin-bottom: 2rem;
+    }
+}

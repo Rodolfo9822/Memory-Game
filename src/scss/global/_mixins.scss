@@ -32,5 +32,9 @@
 
 @mixin container($width, $average) {
     width: min($width, $average);
-    margin: 0 auto;
+    margin: 0rem auto;
+}
+
+@mixin fontSize {
+    font-size: 1.8rem;
 }
