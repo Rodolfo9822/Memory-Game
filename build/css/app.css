@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300..800&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -335,4 +336,95 @@ template {
    */
 [hidden] {
   display: none;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  background-image: url("../img/hero.avif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+h1,
+h2,
+p,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+select {
+  border: none;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  padding: 2rem 0;
+}
+
+.web-name-box {
+  width: min(140rem, 95%);
+  margin: 0rem auto;
+  margin-bottom: 2rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.settings {
+  width: min(110rem, 90%);
+  margin: 0rem auto;
+  background-image: linear-gradient(to bottom, #E8175D 50%, #494949 100%);
+  padding: 3rem;
+  border-radius: 1.5rem;
+}
+.settings__title {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.info__scoreboard {
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(180deg, #ffd3b5 0, rgba(255, 140, 148, 0));
+  color: white;
 }

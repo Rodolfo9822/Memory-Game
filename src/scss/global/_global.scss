@@ -1,0 +1,64 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+body {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    font-family: "Open Sans", sans-serif;
+}
+
+main {
+    background-image: url("../img/hero.avif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+h1,
+h2,
+p,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+button,
+select {
+    border: none;
+}
+
+h1 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    padding: 2rem 0;
+}
+
+.web-name-box {
+    @include m.container(140rem, 95%);
+    margin-bottom: v.$bottom;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
