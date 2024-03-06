@@ -1,0 +1,48 @@
+@use 'global/variables' as v;
+@use 'global/mixins' as m;
+
+.car-box {
+    @include m.container(130rem, 98%);
+    padding: 5rem 0;
+}
+
+.monsters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    &__box {
+        width: 25rem;
+        padding: 1rem;
+        position: relative;
+    }
+
+    &__img {
+        height: 30rem;
+        object-fit: contain;
+    }
+
+    &__cover {
+        position: absolute;
+        background-color: v.$redColor;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: v.$radius;
+        border: 4px solid v.$blackColor;
+    }
+}
+
+.green-color {
+    background-color: v.$greenColor;
+}
+
+.red-color {
+    background-color: v.$redColor;
+}
+
+.black-color {
+    background-color: v.$blackColor;
+}

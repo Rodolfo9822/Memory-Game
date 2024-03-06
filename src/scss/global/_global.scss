@@ -25,7 +25,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    background-attachment: fixed;
 }
 
 h1,
@@ -60,5 +60,4 @@ img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
 }

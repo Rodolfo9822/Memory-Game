@@ -5,7 +5,7 @@
 
 .buttons {
     @include m.container(50rem, 90%);
-    margin-bottom: v.$bottom;
+    margin-bottom: 1rem;
 
     &__box {
         display: flex;

@@ -2,7 +2,7 @@
 @use 'global/mixins' as m;
 
 .settings {
-    @include m.container(110rem, 90%);
+    @include m.container(100rem, 90%);
     background-image: linear-gradient(to bottom, v.$redColor 50%, #494949 100%);
     padding: 2rem;
     border-radius: v.$radius;
