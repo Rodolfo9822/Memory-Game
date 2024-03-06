@@ -1,3 +1,7 @@
+@use 'variables' as v;
+
+
+
 @mixin phone {
     @media(min-width: 480px) {
         @content;
@@ -37,4 +41,25 @@
 
 @mixin fontSize {
     font-size: 1.8rem;
+}
+
+@mixin customRadius {
+    border-top-left-radius: calc(v.$radius - 0.4rem);
+    border-bottom-right-radius: calc(v.$radius - 0.4rem);
+}
+
+
+@mixin shadow {
+    box-shadow: 10px 10px 0px 2px v.$blackColor;
+}
+
+@mixin elementesResponsive {
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: none;
+    }
 }

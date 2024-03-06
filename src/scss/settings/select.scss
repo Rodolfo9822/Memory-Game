@@ -1,0 +1,22 @@
+@use 'global/variables' as v;
+@use 'global/mixins' as m;
+
+.select {
+    &__box {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__options {
+        font-weight: 700;
+        font-size: 1.6rem;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        text-align: center;
+        padding: 1rem 0;
+        width: 25rem;
+        @include m.customRadius;
+        @include m.shadow;
+        background-color: v.$whiteColor;
+    }
+}

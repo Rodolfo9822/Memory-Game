@@ -1,2 +1,49 @@
 @use 'global/variables' as v;
 @use 'global/mixins' as m;
+
+
+
+.buttons {
+    @include m.container(50rem, 90%);
+    margin-bottom: v.$bottom;
+
+    &__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+
+    }
+
+    &__style {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        padding: 0.8rem 0rem;
+        width: 10rem;
+        background-color: v.$whiteColor;
+        @include m.customRadius;
+        @include m.shadow;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        transition: all .5s ease;
+    }
+}
+
+
+.start {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0 2rem 0;
+
+    &__button {
+        width: 20rem;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+}
+
+.stuck-button {
+    transform: translate(8px, 8px);
+    box-shadow: 0px 0px 0px 4px v.$blackColor;
+}
