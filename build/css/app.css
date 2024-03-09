@@ -364,7 +364,7 @@ main {
   background-attachment: fixed;
 }
 
-h1,
+cardsContainer h1,
 h2,
 p,
 ol {
@@ -384,6 +384,7 @@ select {
 h1 {
   font-size: 2.6rem;
   font-weight: 600;
+  margin: 0;
   padding: 2rem 0;
 }
 
