@@ -30,6 +30,7 @@ export const cardDesign = (function () {
         const limit = data.length - 1
         while (state) {
             const img = whichIndex(data, limit);
+
         }
     }
 
