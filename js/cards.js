@@ -87,13 +87,19 @@ export const cardDesign = (function () {
             img.alt = `it's ${monster}`;
 
             const div = document.createElement("div");
-            div.classList.add("monsters__cover", "green-color");
+            div.classList.add("monsters__cover", typeOfColor());
             li.appendChild(img);
             li.appendChild(div);
             ol.appendChild(li);
         });
         cardsContainer.appendChild(ol);
     }
+
+    const typeOfColor = () => {
+        const color = document.querySelector(".stuck-button")
+        return color ? `${color.textContent.toLowerCase()}-color` : "green-color"
+    }
+
 
     return {
         designCard: quantity => {
