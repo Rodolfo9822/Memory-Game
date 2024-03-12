@@ -19,38 +19,58 @@ const imageNames = [
 export const cardDesign = (function () {
     const { cardsContainer } = domVariables.variables;
 
-
     const whichIndex = (array, limit) => {
-        const randomIndex = Math.floor(Math.random(0) * (limit - 0) + 1);
+        const randomIndex = Math.floor(Math.random(0) * (limit - 0));
         return array[randomIndex];
     }
 
-    const gettingThePairs = data => {
-        const state = true;
-        const limit = data.length - 1
-        while (state) {
-            const img = whichIndex(data, limit);
-
-        }
-    }
-
-    const randomChoosing = quantity => {
-        let state = true
-        const limit = imageNames.length - 1;
-        const selected = [];
-        while (state) {
-            const img = whichIndex(imageNames, limit);
-
-            if (selected.length === quantity) {
-                state = false;
-            } {
-                if (!selected.includes(img)) {
-                    selected.push(img);
+    const gettingPairs = (selected, quantity) => {
+        const pairs = [];
+        let loop = true;
+        let support = 0
+        while (loop) {
+            const img = whichIndex(selected, selected.length);
+            if (support === quantity) {
+                loop = false
+            }
+            else {
+                if (!pairs.includes(img)) {
+                    pairs.push(img);
+                    support++;
+                }
+                else {
+                    let counting = 0;
+                    pairs.forEach(image => {
+                        if (image === img) {
+                            counting++;
+                        }
+                    })
+                    if (counting === 1) {
+                        pairs.push(img);
+                        support++;
+                    }
                 }
             }
         }
-        /* gettingThePairs(selected); */
-        return selected;
+        return pairs;
+    }
+
+    const randomChoosing = quantity => {
+        let loop = true;
+        let support = 0;
+        const selected = [];
+        while (loop) {
+            const img = whichIndex(imageNames, (imageNames.length - 1));
+            if (support === quantity) {
+                loop = false;
+            } else {
+                if (!selected.includes(img)) {
+                    selected.push(img);
+                    support++;
+                }
+            }
+        }
+        return gettingPairs(selected, (quantity * 2));
     }
 
 
@@ -59,10 +79,8 @@ export const cardDesign = (function () {
         const ol = document.createElement("ol");
         ol.classList.add("monsters");
         data.forEach(monster => {
-
             const li = document.createElement("li");
             li.classList.add("monsters__box");
-
             const img = document.createElement("img");
             img.classList.add("monsters__img");
             img.src = `build/img/Monster_${monster}`;
@@ -70,10 +88,8 @@ export const cardDesign = (function () {
 
             const div = document.createElement("div");
             div.classList.add("monsters__cover", "green-color");
-
             li.appendChild(img);
-            /* li.appendChild(div); */
-
+            li.appendChild(div);
             ol.appendChild(li);
         });
         cardsContainer.appendChild(ol);
@@ -81,7 +97,7 @@ export const cardDesign = (function () {
 
     return {
         designCard: quantity => {
-            const data = randomChoosing(6);
+            const data = randomChoosing(quantity);
             addingCards(data);
         }
     };
