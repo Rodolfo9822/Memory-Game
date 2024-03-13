@@ -4,9 +4,13 @@ import { supportFunctions } from "./globalFunctions.js";
 
 
 export const settingEvents = (function () {
-    const { select, cardStyle } = domVariables.variables;
-
+    const { select, cardStyle, startButton, time } = domVariables.variables;
     const { cleaningContainer } = supportFunctions;
+    let interval;
+    let second = 0;
+    let minutes = 0;
+
+
     const chooseLevel = evt => {
         cleaningContainer();
         const amountOfMonsters = parseInt(evt.target.value);
@@ -39,9 +43,40 @@ export const settingEvents = (function () {
         })
     }
 
+    const timer = () => {
+        interval = setInterval(showingTime, 1000);
+    }
+
+    const showingTime = () => {
+        if (second === 60) {
+            minutes++;
+            second = 0;
+        }
+        second++;
+        const secondsValues = second < 10 ? `0${second}` : second;
+        const minutesValues = minutes < 10 ? `0${minutes}` : minutes;
+        time.textContent = `${minutesValues}:${secondsValues}`;
+    }
+
+    const startGame = evt => {
+        const startButton = evt.target.classList;
+        if (!startButton.contains("stuck-button")) {
+            cardStyle.removeEventListener("click", styleColor);
+            select.removeEventListener("change", chooseLevel);
+            startButton.add("stuck-button");
+            timer();
+            return
+        }
+        cardStyle.addEventListener("click", styleColor);
+        select.addEventListener("change", chooseLevel);
+        startButton.remove("stuck-button");
+        clearInterval(interval);
+    }
+
     return {
         selectEvent: select.addEventListener("change", chooseLevel),
-        cardDesingEvent: cardStyle.addEventListener("click", styleColor)
+        cardDesingEvent: cardStyle.addEventListener("click", styleColor),
+        startButton: startButton.addEventListener("click", startGame)
     }
 
 })();

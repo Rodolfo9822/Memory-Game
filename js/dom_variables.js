@@ -4,6 +4,8 @@ export const domVariables = (function () {
             cardsContainer: document.querySelector("#cardsContainer"),
             select: document.querySelector("#select"),
             cardStyle: document.querySelector("#cardStyle"),
+            startButton: document.querySelector("#startButton"),
+            time: document.querySelector("#minutes"),
         }
     };
 })();
