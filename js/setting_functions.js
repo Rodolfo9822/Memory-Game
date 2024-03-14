@@ -4,12 +4,15 @@ import { supportFunctions } from "./globalFunctions.js";
 
 
 export const settingEvents = (function () {
-    const { select, cardStyle, startButton, time } = domVariables.variables;
+    const { cardsContainer, select, cardStyle, startButton, time, moves, mistakes } = domVariables.variables;
     const { cleaningContainer } = supportFunctions;
     let interval;
     let second = 0;
     let minutes = 0;
-
+    let amountOfMistakes = 0;
+    let amountOfMoves = 0;
+    let firstCard = "";
+    let cardChosen = []
 
     const chooseLevel = evt => {
         cleaningContainer();
@@ -64,14 +67,70 @@ export const settingEvents = (function () {
             cardStyle.removeEventListener("click", styleColor);
             select.removeEventListener("change", chooseLevel);
             startButton.add("stuck-button");
+            cardsContainer.addEventListener("click", playing);
             timer();
             return
         }
         cardStyle.addEventListener("click", styleColor);
         select.addEventListener("change", chooseLevel);
+        cardsContainer.removeEventListener("click", playing);
         startButton.remove("stuck-button");
         clearInterval(interval);
     }
+
+    const playing = evt => {
+
+        if (evt.target.classList.contains("monsters__cover")) {
+            const monster = evt.target.getAttribute("name");
+            if (firstCard === "") {
+                firstCard = monster;
+                RemovingCover(evt.target);
+                return;
+            }
+
+            RemovingCover(evt.target);
+            addingMovesUp();
+
+            if (firstCard === monster) {
+                cardChosen = [];
+                firstCard = "";
+            } else {
+                addingMistakesUp();
+                firstCard = "";
+                setTimeout(() => {
+                    makingCover();
+                }, 1000);
+            }
+
+
+        }
+    }
+
+    const addingMistakesUp = () => {
+        amountOfMistakes++;
+        mistakes.textContent = `Mistakes: ${amountOfMistakes}`;
+
+    }
+
+    const addingMovesUp = () => {
+        amountOfMoves++
+        moves.textContent = `Moves: ${amountOfMoves}`;
+    }
+
+    const RemovingCover = cover => {
+        const box = cover.parentElement
+        const card = cover.parentElement.children[1];
+        cardChosen.push({ box, card });
+        box.removeChild(card);
+    }
+
+    const makingCover = () => {
+        cardChosen.forEach(element => {
+            element["box"].appendChild(element["card"]);
+        })
+    }
+
+
 
     return {
         selectEvent: select.addEventListener("change", chooseLevel),

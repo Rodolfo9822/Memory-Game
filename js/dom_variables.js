@@ -6,6 +6,8 @@ export const domVariables = (function () {
             cardStyle: document.querySelector("#cardStyle"),
             startButton: document.querySelector("#startButton"),
             time: document.querySelector("#minutes"),
+            mistakes: document.querySelector("#mistakes"),
+            moves: document.querySelector("#moves"),
         }
     };
 })();

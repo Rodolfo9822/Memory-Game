@@ -35,18 +35,21 @@
     }
 }
 
-.green-color {
+.green-color,
+.red-color,
+.black-color {
     transition: all 1s;
+}
+
+.green-color {
     background-color: v.$greenColor;
 }
 
 .red-color {
-    transition: all 1s;
     background-color: v.$redColor;
 }
 
 .black-color {
-    transition: all 1s;
     background-color: v.$blackColor;
     border: 4px solid v.$whiteColor;
 }

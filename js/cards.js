@@ -79,15 +79,17 @@ export const cardDesign = (function () {
         const ol = document.createElement("ol");
         ol.classList.add("monsters");
         data.forEach(monster => {
+            const monsterName = monster.split(".", 2)
             const li = document.createElement("li");
             li.classList.add("monsters__box");
             const img = document.createElement("img");
             img.classList.add("monsters__img");
             img.src = `build/img/Monster_${monster}`;
             img.alt = `it's ${monster}`;
-
             const div = document.createElement("div");
             div.classList.add("monsters__cover", typeOfColor());
+            div.setAttribute("name", monsterName[0])
+
             li.appendChild(img);
             li.appendChild(div);
             ol.appendChild(li);

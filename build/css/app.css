@@ -538,18 +538,21 @@ img {
   border: 4px solid #363636;
 }
 
-.green-color {
+.green-color,
+.red-color,
+.black-color {
   transition: all 1s;
+}
+
+.green-color {
   background-color: #A8E6CE;
 }
 
 .red-color {
-  transition: all 1s;
   background-color: #E8175D;
 }
 
 .black-color {
-  transition: all 1s;
   background-color: #363636;
   border: 4px solid #ffffff;
 }
