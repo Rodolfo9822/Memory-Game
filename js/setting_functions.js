@@ -13,6 +13,9 @@ export const settingEvents = (function () {
     let amountOfMoves = 0;
     let firstCard = "";
     let cardChosen = []
+    let monsterFound = 0;
+    let total = 0;
+
 
     const chooseLevel = evt => {
         cleaningContainer();
@@ -62,20 +65,20 @@ export const settingEvents = (function () {
     }
 
     const startGame = evt => {
-        const startButton = evt.target.classList;
-        if (!startButton.contains("stuck-button")) {
+        const startButtonElement = evt.target.classList;
+        if (!startButtonElement.contains("stuck-button")) {
+            total = Array.from(document.querySelectorAll(".monsters__img")).length
             cardStyle.removeEventListener("click", styleColor);
             select.removeEventListener("change", chooseLevel);
-            startButton.add("stuck-button");
+            startButtonElement.add("stuck-button");
             cardsContainer.addEventListener("click", playing);
+            select.setAttribute("disabled", "");
+            startButton.setAttribute("disabled", "");
+            mistakes.textContent = `Mistakes: ${0}`;
+            moves.textContent = `Moves: ${0}`;
             timer();
             return
         }
-        cardStyle.addEventListener("click", styleColor);
-        select.addEventListener("change", chooseLevel);
-        cardsContainer.removeEventListener("click", playing);
-        startButton.remove("stuck-button");
-        clearInterval(interval);
     }
 
     const playing = evt => {
@@ -92,6 +95,7 @@ export const settingEvents = (function () {
             addingMovesUp();
 
             if (firstCard === monster) {
+                monsterFound++;
                 cardChosen = [];
                 firstCard = "";
             } else {
@@ -102,7 +106,7 @@ export const settingEvents = (function () {
                 }, 1000);
             }
 
-
+            reset();
         }
     }
 
@@ -130,7 +134,30 @@ export const settingEvents = (function () {
         })
     }
 
+    const checkingOut = () => monsterFound === (total / 2);
 
+    const reset = () => {
+        if (checkingOut()) {
+            clearInterval(interval);
+            cardChosen = [];
+            amountOfMistakes = 0;
+            amountOfMoves = 0;
+            monsterFound = 0;
+            firstCard = "";
+            minutes = 0;
+            second = 0;
+            addingSettings();
+        }
+    }
+
+    const addingSettings = () => {
+        cardStyle.addEventListener("click", styleColor);
+        select.addEventListener("change", chooseLevel);
+        cardsContainer.removeEventListener("click", playing);
+        startButton.classList.remove("stuck-button");
+        select.removeAttribute("disabled");
+        startButton.removeAttribute("disabled");
+    }
 
     return {
         selectEvent: select.addEventListener("change", chooseLevel),
