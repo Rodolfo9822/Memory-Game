@@ -22,9 +22,9 @@
 
         <section class="settings">
             <div class="info">
-                <p class="info__scoreboard">Mistakes: <span>0</span></p>
-                <p class="info__scoreboard">Moves: <span>0</span></p>
-                <p class="info__scoreboard">00:<span>00</span></p>
+                <p class="info__scoreboard" id="mistakes">Mistakes: 0</p>
+                <p class="info__scoreboard" id="moves">Moves: 0</p>
+                <p class="info__scoreboard" id="minutes">00:00</p>
             </div>
 
             <div>
@@ -33,40 +33,40 @@
 
             <div class="buttons">
                 <h2 class="settings__title">Card's Design</h2>
-                <div class="buttons__box">
-                    <button class="buttons__style">Green</button>
-                    <button class="buttons__style">Red</button>
-                    <button class="buttons__style">Black</button>
+                <div class="buttons__box" id="cardStyle">
+                    <button class="buttons__style">green</button>
+                    <button class="buttons__style">red</button>
+                    <button class="buttons__style">black</button>
                 </div>
             </div>
 
             <div class="select">
                 <h2 class="settings__title">Select the level</h2>
                 <div class="select__box">
-                    <select class="select__options" id="">
+                    <select class="select__options" id="select">
                         <option value="" selected disabled>How many monsters?</option>
-                        <option value="6">Amount of monsters 6</option>
-                        <option value="10">Amount of monsters 10</option>
-                        <option value="14">Amount of monsters 14</option>
-                        <option value="18">Amount of monsters 18</option>
-                        <option value="20">Amount of monsters 20</option>
-                        <option value="24">Amount of monsters 24</option>
+                        <option value="3">Amount of monsters 6</option>
+                        <option value="5">Amount of monsters 10</option>
+                        <option value="7">Amount of monsters 14</option>
+                        <option value="9">Amount of monsters 18</option>
+                        <option value="10">Amount of monsters 20</option>
+                        <option value="11">Amount of monsters 24</option>
                     </select>
                 </div>
             </div>
 
             <div class="start">
-                <button class="buttons__style start__button">Start the game</button>
+                <button id="startButton" class="buttons__style start__button">Start the game</button>
             </div>
 
         </section>
 
-        <section>
+        <section class="car-box" id="cardsContainer">
 
         </section>
     </main>
 
-
+    <script src="js/app.js" type="module"></script>
 </body>
 
 </html>

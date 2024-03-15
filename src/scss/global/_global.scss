@@ -12,12 +12,12 @@ html {
     box-sizing: inherit;
 }
 
-
 body {
     font-size: 1.6rem;
     letter-spacing: 2px;
     line-height: 1.5;
     font-family: "Open Sans", sans-serif;
+
 }
 
 main {
@@ -25,7 +25,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    background-attachment: fixed;
 }
 
 h1,
@@ -47,7 +47,8 @@ select {
 
 h1 {
     font-size: 2.6rem;
-    font-weight: 600;
+    font-weight: 700;
+    margin: 0;
     padding: 2rem 0;
 }
 
@@ -60,5 +61,4 @@ img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
 }
